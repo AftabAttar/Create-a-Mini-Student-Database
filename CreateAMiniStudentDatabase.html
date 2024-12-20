@@ -1,0 +1,33 @@
+<script>
+  let students = [
+    { name: "Alice", age: 20, marks: { math: 85, science: 90, english: 88 } },
+    { name: "Aftab", age: 21, marks: { math: 95, science: 75, english: 85 } },
+    { name: "Attar", age: 22, marks: { math: 80, science: 85, english: 90 } },
+  ];
+
+  //Step2
+  students.push({
+    name: "Binod",
+    age: 19,
+    marks: { math: 90, science: 85, english: 80 },
+  });
+
+  //Step3
+  students.forEach((student) => {
+    let totalMarks =
+      student.marks.math + student.marks.science + student.marks.english;
+    student.averageMarks = totalMarks / 3;
+    console.log(
+      `${student.name}'s Average Marks: ${student.averageMarks.toFixed(2)}`
+    );
+  });
+
+  let topStudent = students.reduce((highest, student) =>
+    student.averageMarks > highest.averageMarks ? student : highest
+  );
+
+  //Step4
+  console.log(`\nTop Student: ${topStudent.name}`);
+  console.log(`Average Marks: ${topStudent.averageMarks.toFixed(2)}`);
+  console.log(`Details:`, topStudent);
+</script>
